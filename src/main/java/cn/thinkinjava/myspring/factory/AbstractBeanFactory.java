@@ -1,7 +1,8 @@
 package cn.thinkinjava.myspring.factory;
 
 import cn.thinkinjava.myspring.BeanDefinition;
-import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 一个抽象类， 实现了 bean 的方法，包含一个map，用于存储bean 的名字和bean的定义
@@ -13,7 +14,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
   /**
    * 容器
    */
-  private HashMap<String, BeanDefinition> map = new HashMap<>();
+  private Map<String, BeanDefinition> map = new ConcurrentHashMap<>();
 
   /**
    * 根据bean的名称获取bean， 如果没有，则抛出异常 如果有， 则从bean定义对象获取bean实例

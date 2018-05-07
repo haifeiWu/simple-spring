@@ -3,6 +3,7 @@ package cn.thinkinjava.myspring;
 import cn.thinkinjava.myspring.io.ResourceLoader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 抽象的bean定义读取类
@@ -27,7 +28,7 @@ public abstract class AbstractBeanDefinitionReader implements BeanDefinitionRead
    * @param resourceLoader 资源加载器
    */
   protected AbstractBeanDefinitionReader(ResourceLoader resourceLoader) {
-    this.registry = new HashMap<>();
+    this.registry = new ConcurrentHashMap<>();
     this.resourceLoader = resourceLoader;
   }
 
