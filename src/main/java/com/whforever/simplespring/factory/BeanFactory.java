@@ -1,6 +1,6 @@
-package cn.thinkinjava.myspring.factory;
+package com.whforever.simplespring.factory;
 
-import cn.thinkinjava.myspring.BeanDefinition;
+import com.whforever.simplespring.BeanDefinition;
 
 /**
  * 需要一个beanFactory 定义ioc 容器的一些行为 比如根据名称获取bean， 比如注册bean，参数为bean的名称，bean的定义

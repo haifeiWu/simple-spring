@@ -1,4 +1,4 @@
-package cn.thinkinjava.myspring;
+package com.whforever.simplespring;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,10 @@
-package cn.thinkinjava.myspring.test;
+package com.whforever.simplespring.test;
 
-import cn.thinkinjava.myspring.BeanDefinition;
-import cn.thinkinjava.myspring.PropertyValue;
-import cn.thinkinjava.myspring.PropertyValues;
-import cn.thinkinjava.myspring.factory.AutowireBeanFactory;
-import cn.thinkinjava.myspring.factory.BeanFactory;
+import com.whforever.simplespring.BeanDefinition;
+import com.whforever.simplespring.PropertyValue;
+import com.whforever.simplespring.PropertyValues;
+import com.whforever.simplespring.factory.AutowireBeanFactory;
+import com.whforever.simplespring.factory.BeanFactory;
 import org.junit.Test;
 
 /**
@@ -15,7 +15,7 @@ import org.junit.Test;
 public class BeanFactoryTest {
 
   // 类全名称
-  private final String classname = "cn.thinkinjava.myspring.test.HelloWorld";
+  private final String classname = "HelloWorld";
   // 属性名称
   private final String property = "text";
   // 属性值

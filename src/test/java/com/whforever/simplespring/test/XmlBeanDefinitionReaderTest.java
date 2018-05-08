@@ -1,11 +1,12 @@
-package cn.thinkinjava.myspring.test;
+package com.whforever.simplespring.test;
 
-import cn.thinkinjava.myspring.BeanDefinition;
-import cn.thinkinjava.myspring.factory.AutowireBeanFactory;
-import cn.thinkinjava.myspring.factory.BeanFactory;
-import cn.thinkinjava.myspring.io.ResourceLoader;
-import cn.thinkinjava.myspring.xml.XmlBeanDefinitionReader;
+import com.whforever.simplespring.BeanDefinition;
+import com.whforever.simplespring.factory.AutowireBeanFactory;
+import com.whforever.simplespring.factory.BeanFactory;
+import com.whforever.simplespring.io.ResourceLoader;
+import com.whforever.simplespring.xml.XmlBeanDefinitionReader;
 import java.util.Map;
+
 import org.junit.Test;
 
 public class XmlBeanDefinitionReaderTest {

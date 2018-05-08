@@ -1,4 +1,4 @@
-package cn.thinkinjava.myspring.io;
+package com.whforever.simplespring.io;
 
 import java.io.InputStream;
 

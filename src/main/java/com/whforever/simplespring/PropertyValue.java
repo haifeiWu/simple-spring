@@ -1,4 +1,4 @@
-package cn.thinkinjava.myspring;
+package com.whforever.simplespring;
 
 /**
  * 属性定义

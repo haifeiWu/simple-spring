@@ -1,8 +1,9 @@
-package cn.thinkinjava.myspring.factory;
+package com.whforever.simplespring.factory;
 
-import cn.thinkinjava.myspring.BeanDefinition;
-import cn.thinkinjava.myspring.PropertyValue;
-import cn.thinkinjava.myspring.BeanReference;
+import com.whforever.simplespring.BeanDefinition;
+import com.whforever.simplespring.PropertyValue;
+import com.whforever.simplespring.BeanReference;
+
 import java.lang.reflect.Field;
 
 

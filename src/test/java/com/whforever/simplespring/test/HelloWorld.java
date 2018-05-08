@@ -1,4 +1,4 @@
-package cn.thinkinjava.myspring.test;
+package com.whforever.simplespring.test;
 
 public class HelloWorld {
 

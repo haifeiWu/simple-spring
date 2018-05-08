@@ -1,7 +1,7 @@
-package cn.thinkinjava.myspring;
+package com.whforever.simplespring;
 
-import cn.thinkinjava.myspring.io.ResourceLoader;
-import java.util.HashMap;
+import com.whforever.simplespring.io.ResourceLoader;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

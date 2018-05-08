@@ -3,10 +3,10 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-  <bean name="hello" class="cn.thinkinjava.myspring.test.HelloWorld">
+  <bean name="hello" class="com.whforever.simplespring.test.HelloWorld">
     <property name="text" value="Hello World!"></property>
   </bean>
-  <bean name="referenceBean" class="cn.thinkinjava.myspring.test.ReferenceBean">
+  <bean name="referenceBean" class="com.whforever.simplespring.test.ReferenceBean">
     <property name="hello" ref="hello"></property>
   </bean>
 

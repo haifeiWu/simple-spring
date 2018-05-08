@@ -1,6 +1,6 @@
-package cn.thinkinjava.myspring.factory;
+package com.whforever.simplespring.factory;
 
-import cn.thinkinjava.myspring.BeanDefinition;
+import com.whforever.simplespring.BeanDefinition;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

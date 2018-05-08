@@ -1,13 +1,14 @@
-package cn.thinkinjava.myspring.xml;
+package com.whforever.simplespring.xml;
 
-import cn.thinkinjava.myspring.AbstractBeanDefinitionReader;
-import cn.thinkinjava.myspring.BeanDefinition;
-import cn.thinkinjava.myspring.BeanReference;
-import cn.thinkinjava.myspring.PropertyValue;
-import cn.thinkinjava.myspring.io.ResourceLoader;
+import com.whforever.simplespring.AbstractBeanDefinitionReader;
+import com.whforever.simplespring.BeanDefinition;
+import com.whforever.simplespring.BeanReference;
+import com.whforever.simplespring.PropertyValue;
+import com.whforever.simplespring.io.ResourceLoader;
 import java.io.InputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
