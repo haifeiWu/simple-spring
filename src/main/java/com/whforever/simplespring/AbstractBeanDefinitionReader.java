@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 抽象的bean定义读取类
  *
- * @author stateis0
+ * @author wuhf
  */
 public abstract class AbstractBeanDefinitionReader implements BeanDefinitionReader {
 

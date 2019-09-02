@@ -13,135 +13,138 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 /**
- * ½âÎöXMLÎÄ¼ş
+ * è§£æXMLæ–‡ä»¶
  *
- * @author stateis0
+ * @author wuhf
  */
 public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
   /**
-   * ¹¹ÔìÆ÷£¬±ØĞë°üº¬Ò»¸ö×ÊÔ´¼ÓÔØÆ÷
+   * æ„é€ å™¨ï¼Œå¿…é¡»åŒ…å«ä¸€ä¸ªèµ„æºåŠ è½½å™¨
    *
-   * @param resourceLoader ×ÊÔ´¼ÓÔØÆ÷
+   * @param resourceLoader èµ„æºåŠ è½½å™¨
    */
   public XmlBeanDefinitionReader(ResourceLoader resourceLoader) {
     super(resourceLoader);
   }
 
   public void readerXML(String location) throws Exception {
-    // ´´½¨Ò»¸ö×ÊÔ´¼ÓÔØÆ÷
+    // åˆ›å»ºä¸€ä¸ªèµ„æºåŠ è½½å™¨
     ResourceLoader resourceloader = new ResourceLoader();
-    // ´Ó×ÊÔ´¼ÓÔØÆ÷ÖĞ»ñÈ¡ÊäÈëÁ÷
+    // ä»èµ„æºåŠ è½½å™¨ä¸­è·å–è¾“å…¥æµ
     InputStream inputstream = resourceloader.getResource(location).getInputstream();
-    // »ñÈ¡ÎÄµµ½¨ÔìÕß¹¤³§ÊµÀı
+    // è·å–æ–‡æ¡£å»ºé€ è€…å·¥å‚å®ä¾‹
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    // ¹¤³§´´½¨ÎÄµµ½¨ÔìÕß
+    // å·¥å‚åˆ›å»ºæ–‡æ¡£å»ºé€ è€…
     DocumentBuilder docBuilder = factory.newDocumentBuilder();
-    // ÎÄµµ½¨ÔìÕß½âÎöÁ÷ ·µ»ØÎÄµµ¶ÔÏó
+    // æ–‡æ¡£å»ºé€ è€…è§£ææµ è¿”å›æ–‡æ¡£å¯¹è±¡
     Document doc = docBuilder.parse(inputstream);
-    // ¸ù¾İ¸ø¶¨µÄÎÄµµ¶ÔÏó½øĞĞ½âÎö£¬²¢×¢²áµ½beanÈİÆ÷ÖĞ
+    // æ ¹æ®ç»™å®šçš„æ–‡æ¡£å¯¹è±¡è¿›è¡Œè§£æï¼Œå¹¶æ³¨å†Œåˆ°beanå®¹å™¨ä¸­
     registerBeanDefinitions(doc);
-    // ¹Ø±ÕÁ÷
+    // å…³é—­æµ
     inputstream.close();
   }
 
   /**
-   * ¸ù¾İ¸ø¶¨µÄÎÄµµ¶ÔÏó½øĞĞ½âÎö£¬²¢×¢²áµ½beanÈİÆ÷ÖĞ
+   * æ ¹æ®ç»™å®šçš„æ–‡æ¡£å¯¹è±¡è¿›è¡Œè§£æï¼Œå¹¶æ³¨å†Œåˆ°beanå®¹å™¨ä¸­
    *
-   * @param doc ÎÄµµ¶ÔÏó
+   * @param doc æ–‡æ¡£å¯¹è±¡
    */
   private void registerBeanDefinitions(Document doc) {
-    // ¶ÁÈ¡ÎÄµµµÄ¸ùÔªËØ
+    // è¯»å–æ–‡æ¡£çš„æ ¹å…ƒç´ 
     Element root = doc.getDocumentElement();
-    // ½âÎöÔªËØµÄ¸ù½Úµã¼°¸ù½ÚµãÏÂµÄËùÓĞ×Ó½Úµã²¢Ìí¼Ó½ø×¢²áÈİÆ÷
+    // è§£æå…ƒç´ çš„æ ¹èŠ‚ç‚¹åŠæ ¹èŠ‚ç‚¹ä¸‹çš„æ‰€æœ‰å­èŠ‚ç‚¹å¹¶æ·»åŠ è¿›æ³¨å†Œå®¹å™¨
     parseBeanDefinitions(root);
   }
 
   /**
-   * ½âÎöÔªËØµÄ¸ù½Úµã¼°¸ù½ÚµãÏÂµÄËùÓĞ×Ó½Úµã²¢Ìí¼Ó½ø×¢²áÈİÆ÷
+   * è§£æå…ƒç´ çš„æ ¹èŠ‚ç‚¹åŠæ ¹èŠ‚ç‚¹ä¸‹çš„æ‰€æœ‰å­èŠ‚ç‚¹å¹¶æ·»åŠ è¿›æ³¨å†Œå®¹å™¨
    *
-   * @param root XML ÎÄ¼ş¸ù½Úµã
+   * @param root XML æ–‡ä»¶æ ¹èŠ‚ç‚¹
    */
   private void parseBeanDefinitions(Element root) {
-    // ¶ÁÈ¡¸ùÔªËØµÄËùÓĞ×ÓÔªËØ
+    // è¯»å–æ ¹å…ƒç´ çš„æ‰€æœ‰å­å…ƒç´ 
     NodeList nl = root.getChildNodes();
-    // ±éÀú×ÓÔªËØ
+    // éå†å­å…ƒç´ 
     for (int i = 0; i < nl.getLength(); i++) {
-      // »ñÈ¡¸ùÔªËØµÄ¸ø¶¨Î»ÖÃµÄ½Úµã
+      // è·å–æ ¹å…ƒç´ çš„ç»™å®šä½ç½®çš„èŠ‚ç‚¹
       Node node = nl.item(i);
-      // ÀàĞÍÅĞ¶Ï
+      // ç±»å‹åˆ¤æ–­
       if (node instanceof Element) {
-        // Ç¿×ªÎª¸¸ÀàĞÍÔªËØ
+        // å¼ºè½¬ä¸ºçˆ¶ç±»å‹å…ƒç´ 
         Element ele = (Element) node;
-        // ½âÎö¸ø¸ø¶¨µÄ½Úµã£¬°üÀ¨name£¬class£¬property£¬ name£¬ value£¬ref
+        // è§£æç»™ç»™å®šçš„èŠ‚ç‚¹ï¼ŒåŒ…æ‹¬nameï¼Œclassï¼Œpropertyï¼Œ nameï¼Œ valueï¼Œref
         processBeanDefinition(ele);
       }
     }
   }
 
   /**
-   * ½âÎö¸ø¸ø¶¨µÄ½Úµã£¬°üÀ¨name£¬class£¬property£¬ name£¬ value£¬ref
+   * è§£æç»™ç»™å®šçš„èŠ‚ç‚¹ï¼ŒåŒ…æ‹¬nameï¼Œclassï¼Œpropertyï¼Œ nameï¼Œ valueï¼Œref
    *
-   * @param ele XML ½âÎöÔªËØ
+   * @param ele XML è§£æå…ƒç´ 
    */
   private void processBeanDefinition(Element ele) {
-    // »ñÈ¡¸ø¶¨ÔªËØµÄ name ÊôĞÔ
+    // è·å–ç»™å®šå…ƒç´ çš„ name å±æ€§
     String name = ele.getAttribute("name");
-    // »ñÈ¡¸ø¶¨ÔªËØµÄ class ÊôĞÔ
+    // è·å–ç»™å®šå…ƒç´ çš„ class å±æ€§
     String className = ele.getAttribute("class");
-    // ´´½¨Ò»¸öbean¶¨Òå¶ÔÏó
+    // åˆ›å»ºä¸€ä¸ªbeanå®šä¹‰å¯¹è±¡
     BeanDefinition beanDefinition = new BeanDefinition();
-    // ÉèÖÃbean ¶¨Òå¶ÔÏóµÄ È«ÏŞ¶¨ÀàÃû
+    // è®¾ç½®bean å®šä¹‰å¯¹è±¡çš„ å…¨é™å®šç±»å
     beanDefinition.setClassname(className);
-    // Ïò bean ×¢ÈëÅäÖÃÎÄ¼şÖĞµÄ³ÉÔ±±äÁ¿
+    // å‘ bean æ³¨å…¥é…ç½®æ–‡ä»¶ä¸­çš„æˆå‘˜å˜é‡
     addPropertyValues(ele, beanDefinition);
-    // Ïò×¢²áÈİÆ÷ Ìí¼ÓbeanÃû³ÆºÍbean¶¨Òå
+    // å‘æ³¨å†Œå®¹å™¨ æ·»åŠ beanåç§°å’Œbeanå®šä¹‰
     getRegistry().put(name, beanDefinition);
   }
 
   /**
-   * Ìí¼ÓÅäÖÃÎÄ¼şÖĞµÄÊôĞÔÔªËØµ½bean¶¨ÒåÊµÀıÖĞ
+   * æ·»åŠ é…ç½®æ–‡ä»¶ä¸­çš„å±æ€§å…ƒç´ åˆ°beanå®šä¹‰å®ä¾‹ä¸­
    *
-   * @param ele ÔªËØ
-   * @param beandefinition bean¶¨Òå ¶ÔÏó
+   * @param ele å…ƒç´ 
+   * @param beandefinition beanå®šä¹‰ å¯¹è±¡
    */
   private void addPropertyValues(Element ele, BeanDefinition beandefinition) {
-    // »ñÈ¡¸ø¶¨ÔªËØµÄ property ÊôĞÔ¼¯ºÏ
+    // è·å–ç»™å®šå…ƒç´ çš„ property å±æ€§é›†åˆ
     NodeList propertyNode = ele.getElementsByTagName("property");
-    // Ñ­»·¼¯ºÏ
+    // å¾ªç¯é›†åˆ
     for (int i = 0; i < propertyNode.getLength(); i++) {
-      // »ñÈ¡¼¯ºÏÖĞÄ³¸ö¸ø¶¨Î»ÖÃµÄ½Úµã
+      // è·å–é›†åˆä¸­æŸä¸ªç»™å®šä½ç½®çš„èŠ‚ç‚¹
       Node node = propertyNode.item(i);
-      // ÀàĞÍÅĞ¶Ï
+      // ç±»å‹åˆ¤æ–­
       if (node instanceof Element) {
-        // ½«½ÚµãÏòÏÂÇ¿×ªÎª×ÓÔªËØ
+        // å°†èŠ‚ç‚¹å‘ä¸‹å¼ºè½¬ä¸ºå­å…ƒç´ 
         Element propertyEle = (Element) node;
-        // ÔªËØ¶ÔÏó»ñÈ¡ name ÊôĞÔ
+        // å…ƒç´ å¯¹è±¡è·å– name å±æ€§
         String name = propertyEle.getAttribute("name");
-        // ÔªËØ¶ÔÏó»ñÈ¡ value ÊôĞÔÖµ
+        // å…ƒç´ å¯¹è±¡è·å– value å±æ€§å€¼
         String value = propertyEle.getAttribute("value");
-        // ÅĞ¶Ïvalue²»Îª¿Õ
+        // åˆ¤æ–­valueä¸ä¸ºç©º
         if (value != null && value.length() > 0) {
-          // Ïò¸ø¶¨µÄ ¡°bean¶¨Òå¡± ÊµÀıÖĞÌí¼Ó¸Ã³ÉÔ±±äÁ¿
+          // å‘ç»™å®šçš„ â€œbeanå®šä¹‰â€ å®ä¾‹ä¸­æ·»åŠ è¯¥æˆå‘˜å˜é‡
           beandefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, value));
         } else {
-          // Èç¹ûÎª¿Õ£¬Ôò»ñÈ¡ÊôĞÔref
+          // å¦‚æœä¸ºç©ºï¼Œåˆ™è·å–å±æ€§ref
           String ref = propertyEle.getAttribute("ref");
           if (ref == null || ref.length() == 0) {
-            // Èç¹ûÊôĞÔrefÎª¿Õ£¬ÔòÅ×³öÒì³£
+            // å¦‚æœå±æ€§refä¸ºç©ºï¼Œåˆ™æŠ›å‡ºå¼‚å¸¸
             throw new IllegalArgumentException(
-                "Configuration problem: <property> element for property '"
-                    + name + "' must specify a ref or value");
+                    "Configuration problem: <property> element for property '"
+                            + name + "' must specify a ref or value");
           }
-          // Èç¹û²»Îª¿Õ£¬²â´´½¨Ò»¸ö ¡°beanµÄÒıÓÃ¡± ÊµÀı£¬¹¹Ôì²ÎÊıÎªÃû³Æ£¬ÊµÀıÔİÊ±Îª¿Õ
+          // å¦‚æœä¸ä¸ºç©ºï¼Œæµ‹åˆ›å»ºä¸€ä¸ª â€œbeançš„å¼•ç”¨â€ å®ä¾‹ï¼Œæ„é€ å‚æ•°ä¸ºåç§°ï¼Œå®ä¾‹æš‚æ—¶ä¸ºç©º
           BeanReference beanRef = new BeanReference(name);
-          // Ïò¸ø¶¨µÄ ¡°bean¶¨Òå¡± ÖĞÌí¼Ó³ÉÔ±±äÁ¿
+          // å‘ç»™å®šçš„ â€œbeanå®šä¹‰â€ ä¸­æ·»åŠ æˆå‘˜å˜é‡
           beandefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, beanRef));
         }
       }
     }
   }
 
+  @Override
+  public void loadBeanDefinitions(String location) throws Exception {
+
+  }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 属性集合
  *
- * @author stateis0
+ * @author wuhf
  */
 public class PropertyValues {
 

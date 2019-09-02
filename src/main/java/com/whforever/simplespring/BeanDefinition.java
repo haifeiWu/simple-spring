@@ -3,7 +3,7 @@ package com.whforever.simplespring;
 /**
  * bean 的定义
  *
- * @author stateis0
+ * @author wuhf
  */
 public class BeanDefinition {
 

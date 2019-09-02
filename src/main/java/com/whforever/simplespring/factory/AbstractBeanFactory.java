@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 一个抽象类， 实现了 bean 的方法，包含一个map，用于存储bean 的名字和bean的定义
  *
- * @author stateis0
+ * @author wuhf
  */
 public abstract class AbstractBeanFactory implements BeanFactory {
 

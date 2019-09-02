@@ -3,7 +3,7 @@ package com.whforever.simplespring;
 /**
  * bean的引用
  *
- * @author stateis0
+ * @author wuhf
  */
 public class BeanReference {
 

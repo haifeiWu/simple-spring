@@ -8,50 +8,48 @@ import com.whforever.simplespring.factory.BeanFactory;
 import org.junit.Test;
 
 /**
- * ²âÊÔ
+ * æµ‹è¯•
  *
- * @author stateis0
+ * @author wuhf
  */
 public class BeanFactoryTest {
 
-  // ÀàÈ«Ãû³Æ
-  private final String classname = "HelloWorld";
-  // ÊôĞÔÃû³Æ
-  private final String property = "text";
-  // ÊôĞÔÖµ
-  private String value = "²âÊÔ×Ô¶¯»ú";
-  // Ààid
-  private final String name = "hello";
+    // ç±»å…¨åç§°
+    private final String classname = "com.whforever.simplespring.test.HelloWorld";
+    // å±æ€§åç§°
+    private final String property = "text";
+    // å±æ€§å€¼
+    private String value = "æµ‹è¯•è‡ªåŠ¨æœº";
+    // ç±»id
+    private final String name = "hello";
 
-  @Test
-  public void test() throws Exception {
+    @Test
+    public void test() throws Exception {
 
-    // ´´½¨×Ô¶¯×¢²ábean¹¤³§
-    BeanFactory beanfactory = new AutowireBeanFactory();
-    // ´´½¨Ò»¸öbean¶¨Òå¶ÔÏó
-    BeanDefinition beandefinition = new BeanDefinition();
-    // ¸øbean¶¨Òå¶ÔÏóÉèÖÃÀàÃû²¢´´½¨class¶ÔÏó
-    beandefinition.setClassname(classname);
+        // åˆ›å»ºè‡ªåŠ¨æ³¨å†Œbeanå·¥å‚
+        BeanFactory beanfactory = new AutowireBeanFactory();
+        // åˆ›å»ºä¸€ä¸ªbeanå®šä¹‰å¯¹è±¡
+        BeanDefinition beandefinition = new BeanDefinition();
+        // ç»™beanå®šä¹‰å¯¹è±¡è®¾ç½®ç±»åå¹¶åˆ›å»ºclasså¯¹è±¡
+        beandefinition.setClassname(classname);
 
-    // ´´½¨Ò»¸ö³ÉÔ±±äÁ¿¼¯ºÏ
-    PropertyValues pv = new PropertyValues();
+        // åˆ›å»ºä¸€ä¸ªæˆå‘˜å˜é‡é›†åˆ
+        PropertyValues pv = new PropertyValues();
 
-    // ¸øbean¶¨ÒåÉèÖÃ³ÉÔ±±äÁ¿¼¯ºÏ
-    beandefinition.setPropertyValues(pv);
+        // ç»™beanå®šä¹‰è®¾ç½®æˆå‘˜å˜é‡é›†åˆ
+        beandefinition.setPropertyValues(pv);
 
-    // Ïòbean¶¨ÒåÌí¼Ó³ÉÔ±±äÁ¿¼¯ºÏ
-    beandefinition.getPropertyValues().addPropertyValue(new PropertyValue(property, value));
+        // å‘beanå®šä¹‰æ·»åŠ æˆå‘˜å˜é‡é›†åˆ
+        beandefinition.getPropertyValues().addPropertyValue(new PropertyValue(property, value));
 
-    // bean¹¤³§½«bean¶¨Òå×¢²áµ½ÈİÆ÷ÖĞ
-    beanfactory.registerBeanDefinition(name, beandefinition);
+        // beanå·¥å‚å°†beanå®šä¹‰æ³¨å†Œåˆ°å®¹å™¨ä¸­
+        beanfactory.registerBeanDefinition(name, beandefinition);
 
-    // ´ÓÈİÆ÷ÖĞ»ñÈ¡beanÊµÀı
-    HelloWorld hello = (HelloWorld) beanfactory.getBean(name);
+        // ä»å®¹å™¨ä¸­è·å–beanå®ä¾‹
+        HelloWorld hello = (HelloWorld) beanfactory.getBean(name);
 
-    // µ÷ÓÃÊµÀı·½·¨
-    hello.say();
-
-
-  }
+        // è°ƒç”¨å®ä¾‹æ–¹æ³•
+        hello.say();
+    }
 
 }

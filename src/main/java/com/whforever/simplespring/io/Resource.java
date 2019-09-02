@@ -5,7 +5,7 @@ import java.io.InputStream;
 /**
  * 资源定义
  *
- * @author stateis0
+ * @author wuhf
  */
 public interface Resource {
 

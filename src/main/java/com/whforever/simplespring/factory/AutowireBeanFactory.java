@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 /**
  * 实现自动注入和递归注入(spring 的标准实现类 DefaultListableBeanFactory 有 1810 行)
  *
- * @author stateis0
+ * @author wuhf
  */
 public class AutowireBeanFactory extends AbstractBeanFactory {
 

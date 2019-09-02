@@ -3,7 +3,7 @@ package com.whforever.simplespring;
 /**
  * 属性定义
  *
- * @author stateis0
+ * @author wuhf
  */
 public class PropertyValue {
 

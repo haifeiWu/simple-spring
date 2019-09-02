@@ -5,7 +5,7 @@ import com.whforever.simplespring.BeanDefinition;
 /**
  * 需要一个beanFactory 定义ioc 容器的一些行为 比如根据名称获取bean， 比如注册bean，参数为bean的名称，bean的定义
  *
- * @author stateis0
+ * @author wuhf
  * @version 1.0.0
  * @Date 2017/11/30
  */

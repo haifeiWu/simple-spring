@@ -5,7 +5,7 @@ import java.net.URL;
 /**
  * 资源加载器
  *
- * @author stateis0
+ * @author wuhf
  */
 public class ResourceLoader {
 
