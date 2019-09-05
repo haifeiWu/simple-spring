@@ -5,9 +5,10 @@
 
   <bean name="hello" class="com.whforever.simplespring.test.HelloWorld">
     <property name="text" value="Hello World!"></property>
+<!--    <property name="referenceBean" ref="referenceBean"></property>-->
   </bean>
   <bean name="referenceBean" class="com.whforever.simplespring.test.ReferenceBean">
-    <property name="hello" ref="hello"></property>
+    <property name="hello" ref="text"></property>
   </bean>
 
 </beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <bean id="a" class="com.whforever.simplespring.test.model.StudentA">
+    <constructor-arg index="0" ref="b"></constructor-arg>
+  </bean>
+  <bean id="b" class="com.whforever.simplespring.test.model.StudentB">
+    <constructor-arg index="0" ref="c"></constructor-arg>
+  </bean>
+  <bean id="c" class="com.whforever.simplespring.test.model.StudentC">
+    <constructor-arg index="0" ref="a"></constructor-arg>
+  </bean>
+
+</beans>

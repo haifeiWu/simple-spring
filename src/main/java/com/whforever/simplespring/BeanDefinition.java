@@ -20,7 +20,7 @@ public class BeanDefinition {
   /**
    * bean 的类全限定名称
    */
-  private String ClassName;
+  private String className;
 
   /**
    * 类的属性集合
@@ -52,7 +52,7 @@ public class BeanDefinition {
    * 通过设置类名称反射生成Class对象
    */
   public void setClassname(String name) {
-    this.ClassName = name;
+    this.className = name;
     try {
       this.beanClass = Class.forName(name);
     } catch (ClassNotFoundException e) {
@@ -72,6 +72,10 @@ public class BeanDefinition {
    */
   public void setPropertyValues(PropertyValues pv) {
     this.propertyValues = pv;
+  }
+
+  public String getClassName() {
+    return className;
   }
 
 }
